@@ -39018,9 +39018,15 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                     let span: TextSpan | undefined;
                     if (!isEffectiveExternalModule(sourceFile, compilerOptions)) {
                         span ??= getSpanOfTokenAtPosition(sourceFile, node.pos);
-                        const message = isAwaitExpression(node) ? Diagnostics.await_expressions_are_only_allowed_at_the_top_level_of_a_file_when_that_file_is_a_module_but_this_file_has_no_imports_or_exports_Consider_adding_an_empty_export_to_make_this_file_a_module :
-                            Diagnostics.await_using_statements_are_only_allowed_at_the_top_level_of_a_file_when_that_file_is_a_module_but_this_file_has_no_imports_or_exports_Consider_adding_an_empty_export_to_make_this_file_a_module;
-                        const diagnostic = createFileDiagnostic(sourceFile, span.start, span.length, message);
+                        const diagnostic = createFileDiagnostic(
+							sourceFile,
+							span.start,
+							span.length,
+							Diagnostics.The_0_setting_1_does_not_support_top_level_await_expressions_Consider_switching_to_2,
+							"module",
+							ModuleKind[moduleKind],  // This is {1}, the current module setting
+							ModuleKind.ES2022        // This is {2}, the suggested module setting
+						);
                         diagnostics.add(diagnostic);
                         hasError = true;
                     }
@@ -39046,9 +39052,16 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                             // fallthrough
                         default:
                             span ??= getSpanOfTokenAtPosition(sourceFile, node.pos);
-                            const message = isAwaitExpression(node) ? Diagnostics.Top_level_await_expressions_are_only_allowed_when_the_module_option_is_set_to_es2022_esnext_system_node16_nodenext_or_preserve_and_the_target_option_is_set_to_es2017_or_higher :
-                                Diagnostics.Top_level_await_using_statements_are_only_allowed_when_the_module_option_is_set_to_es2022_esnext_system_node16_nodenext_or_preserve_and_the_target_option_is_set_to_es2017_or_higher;
-                            diagnostics.add(createFileDiagnostic(sourceFile, span.start, span.length, message));
+                            const diagnostic = createFileDiagnostic(
+								sourceFile,
+								span.start,
+								span.length,
+								Diagnostics.The_0_setting_1_does_not_support_top_level_await_expressions_Consider_switching_to_2,
+								"module",
+								ModuleKind[moduleKind],  // {1}: current setting
+								ModuleKind.ES2022        // {2}: suggested setting
+							);
+                            diagnostics.add(diagnostic);
                             hasError = true;
                             break;
                     }

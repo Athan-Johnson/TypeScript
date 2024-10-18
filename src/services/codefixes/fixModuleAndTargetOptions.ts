@@ -19,8 +19,8 @@ import {
 
 registerCodeFix({
     errorCodes: [
-        Diagnostics.Top_level_await_expressions_are_only_allowed_when_the_module_option_is_set_to_es2022_esnext_system_node16_nodenext_or_preserve_and_the_target_option_is_set_to_es2017_or_higher.code,
-        Diagnostics.Top_level_await_using_statements_are_only_allowed_when_the_module_option_is_set_to_es2022_esnext_system_node16_nodenext_or_preserve_and_the_target_option_is_set_to_es2017_or_higher.code,
+        Diagnostics.
+		The_0_setting_1_does_not_support_top_level_await_expressions_Consider_switching_to_2.code,
         Diagnostics.Top_level_for_await_loops_are_only_allowed_when_the_module_option_is_set_to_es2022_esnext_system_node16_nodenext_or_preserve_and_the_target_option_is_set_to_es2017_or_higher.code,
     ],
     getCodeActions: function getCodeActionsToFixModuleAndTarget(context) {

@@ -1220,7 +1220,7 @@
         "category": "Message",
         "code": 1377
     },
-    "Top-level 'await' expressions are only allowed when the 'module' option is set to 'es2022', 'esnext', 'system', 'node16', 'nodenext', or 'preserve', and the 'target' option is set to 'es2017' or higher.": {
+    "The '{0}' setting '{1}' does not support top-level 'await' expressions. Consider switching to '{2}'.": {
         "category": "Error",
         "code": 1378
     },
@@ -1833,6 +1833,14 @@
     "Named imports from a JSON file into an ECMAScript module are not allowed when 'module' is set to '{0}'.": {
         "category": "Error",
         "code": 1544
+    },
+	"Top-level 'for await' loop is not allowed in CommonJS modules. Please convert to ES module.": {
+        "category": "Error",
+        "code": 1545
+    },
+    "Top-level 'await' expression is not allowed in CommonJS modules. Please convert to ES module.": {
+        "category": "Error",
+        "code": 1546
     },
 
     "The types of '{0}' are incompatible between these types.": {
@@ -3876,7 +3884,7 @@
         "category": "Error",
         "code": 2853
     },
-    "Top-level 'await using' statements are only allowed when the 'module' option is set to 'es2022', 'esnext', 'system', 'node16', 'nodenext', or 'preserve', and the 'target' option is set to 'es2017' or higher.": {
+    "The '{0}' setting '{1}' does not support top-level 'await' expressions. Consider switching to '{2}'.": {
         "category": "Error",
         "code": 2854
     },
