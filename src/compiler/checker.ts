@@ -39024,8 +39024,8 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
 							span.length,
 							Diagnostics.The_0_setting_1_does_not_support_top_level_await_expressions_Consider_switching_to_2,
 							"module",
-							ModuleKind[moduleKind],  // This is {1}, the current module setting
-							ModuleKind.ES2022        // This is {2}, the suggested module setting
+							ModuleKind[moduleKind],                // This is {1}, the current module setting
+							ModuleKind[ModuleKind.ES2022]          // This is {2}, the suggested module setting
 						);
                         diagnostics.add(diagnostic);
                         hasError = true;
@@ -39058,8 +39058,8 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
 								span.length,
 								Diagnostics.The_0_setting_1_does_not_support_top_level_await_expressions_Consider_switching_to_2,
 								"module",
-								ModuleKind[moduleKind],  // {1}: current setting
-								ModuleKind.ES2022        // {2}: suggested setting
+								ModuleKind[moduleKind],                // This is {1}, the current module setting
+							    ModuleKind[ModuleKind.ES2022]          // This is {2}, the suggested module setting
 							);
                             diagnostics.add(diagnostic);
                             hasError = true;
